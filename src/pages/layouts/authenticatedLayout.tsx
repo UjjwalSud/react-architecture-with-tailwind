@@ -2,7 +2,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/sidebar";
-import { breadcrumbConfig } from "../config/breadcrumbConfig";
+import { breadcrumbConfig } from "../../config/breadcrumbConfig";
 import Breadcrumb from "../components/breadCrumb";
 
 const AuthenticatedLayout: React.FC = () => {

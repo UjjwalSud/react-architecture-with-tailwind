@@ -1,12 +1,12 @@
 // src/routes/AppRouter.tsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "../auth/login";
+import Login from "../pages/auth/login";
 //import ForgotPassword from "../auth/ForgotPassword";
-import EditProfile from "../my-account/editProfile";
-import ChangePassword from "../my-account/changePassword";
-import AnonymousLayout from "../layouts/anonymousLayout";
-import AuthenticatedLayout from "../layouts/authenticatedLayout";
+import EditProfile from "../pages/my-account/editProfile";
+import ChangePassword from "../pages/my-account/changePassword";
+import AnonymousLayout from "../pages/layouts/anonymousLayout";
+import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
 
 import {
   ACCOUNT_EDIT_PROFILE,

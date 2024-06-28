@@ -1,6 +1,6 @@
 // src/auth/Login.tsx
 import React from "react";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Login: React.FC = () => {
   useDocumentTitle("Login");

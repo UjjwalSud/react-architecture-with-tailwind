@@ -1,6 +1,7 @@
 // src/index.tsx
 import { StrictMode } from "react";
-import "./index.css"; // Add this line
+import "./styles/index.css";
+
 import App from "./App";
 
 import { createRoot } from "react-dom/client";
@@ -15,11 +16,3 @@ if (rootElement) {
     </StrictMode>
   );
 }
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-// reportWebVitals();
