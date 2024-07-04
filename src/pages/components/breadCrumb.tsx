@@ -11,7 +11,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, heading }) => {
   return (
-    <div className="flex justify-between items-center py-4 px-6 bg-gray-100">
+    <div className="flex justify-between items-center py-4 px-6 bg-white ">
       <h1 className="text-lg font-semibold text-gray-900">{heading}</h1>
       <nav className="flex items-center space-x-4">
         {items.map((item, index) => (

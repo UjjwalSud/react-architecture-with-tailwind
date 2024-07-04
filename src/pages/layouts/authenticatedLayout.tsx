@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/sidebar";
 import { breadcrumbConfig } from "../../config/breadcrumbConfig";
 import Breadcrumb from "../components/breadCrumb";
+import { ToastContainer } from "react-toastify";
 
 const AuthenticatedLayout: React.FC = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const AuthenticatedLayout: React.FC = () => {
   };
   return (
     <div className="flex">
+      <ToastContainer />
       <Sidebar />
       <div className="flex-1 flex flex-col sm:ml-64">
         <div className="bg-white shadow-md p-4 flex justify-between">

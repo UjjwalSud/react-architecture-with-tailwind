@@ -1,8 +1,15 @@
 // src/auth/Login.tsx
-import React from "react";
+import React, { useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
+import authService from "../../services/auth/authService";
 
 const Login: React.FC = () => {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    authService.login({ username, password });
+  };
   useDocumentTitle("Login");
   return (
     <>
@@ -22,6 +29,7 @@ const Login: React.FC = () => {
                       name="email"
                       type="text"
                       autoComplete="off"
+                      onChange={(e) => setUsername(e.target.value)}
                       className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                       placeholder="Email address"
                     />
@@ -39,6 +47,7 @@ const Login: React.FC = () => {
                       type="password"
                       className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                       placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                     <label
                       htmlFor="password"
@@ -48,7 +57,10 @@ const Login: React.FC = () => {
                     </label>
                   </div>
                   <div className="relative">
-                    <button className="bg-cyan-500 text-white rounded-md px-2 py-1">
+                    <button
+                      onClick={handleLogin}
+                      className="bg-cyan-500 text-white rounded-md px-2 py-1"
+                    >
                       Submit
                     </button>
                   </div>
