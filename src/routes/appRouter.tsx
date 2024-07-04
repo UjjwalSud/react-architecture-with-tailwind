@@ -7,6 +7,7 @@ import AnonymousLayout from "../pages/layouts/anonymousLayout";
 import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
 import Dashboard from "../pages/dashboard/dashboard";
 import { ACCOUNT_EDIT_PROFILE, DASHBOARD, LOGIN } from "../constants/routes";
+import NotFoundPage from "../pages/notFoundPage";
 
 const AppRouter: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter: React.FC = () => {
           <Route path={ACCOUNT_EDIT_PROFILE} element={<EditProfile />} />
           <Route path={DASHBOARD} element={<Dashboard />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
