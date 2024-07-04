@@ -5,8 +5,8 @@ import Login from "../pages/auth/login";
 import EditProfile from "../pages/my-account/editProfile";
 import AnonymousLayout from "../pages/layouts/anonymousLayout";
 import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
-
-import { ACCOUNT_EDIT_PROFILE, LOGIN } from "../constants/routes";
+import Dashboard from "../pages/dashboard/dashboard";
+import { ACCOUNT_EDIT_PROFILE, DASHBOARD, LOGIN } from "../constants/routes";
 
 const AppRouter: React.FC = () => {
   return (
@@ -17,6 +17,7 @@ const AppRouter: React.FC = () => {
         </Route>
         <Route element={<AuthenticatedLayout />}>
           <Route path={ACCOUNT_EDIT_PROFILE} element={<EditProfile />} />
+          <Route path={DASHBOARD} element={<Dashboard />} />
         </Route>
       </Routes>
     </Router>

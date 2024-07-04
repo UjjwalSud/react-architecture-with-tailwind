@@ -1,4 +1,4 @@
-import { ACCOUNT_EDIT_PROFILE } from "../constants/routes";
+import { ACCOUNT_EDIT_PROFILE, DASHBOARD } from "../constants/routes";
 
 export interface IBreadcrumbItem {
   label: string;
@@ -13,10 +13,14 @@ export interface BreadcrumbData {
 export const breadcrumbConfig: { [key: string]: BreadcrumbData } = {
   [ACCOUNT_EDIT_PROFILE]: {
     items: [
-      { label: "Home", href: "/" },
+      { label: "Dashboard", href: DASHBOARD },
       { label: "Account", href: "" },
       { label: "Edit Profile", href: "" },
     ],
     heading: "Edit Profile",
+  },
+  [DASHBOARD]: {
+    items: [{ label: "Dashboard", href: "" }],
+    heading: "Dashboard",
   },
 };
