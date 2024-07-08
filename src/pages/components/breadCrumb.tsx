@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 interface IBreadcrumbItem {
   label: string;
   href: string;
@@ -17,9 +18,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, heading }) => {
         {items.map((item, index) => (
           <div key={index} className="flex items-center">
             {item.href ? (
-              <a href={item.href} className="text-gray-700 hover:text-gray-900">
+              <Link
+                to={item.href}
+                className="text-gray-700 hover:text-gray-900"
+              >
                 {item.label}
-              </a>
+              </Link>
             ) : (
               <span className="text-gray-400">{item.label}</span>
             )}

@@ -7,6 +7,7 @@ import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
 import Dashboard from "../pages/dashboard/dashboard";
 import { systemRoutes } from "../constants/systemRoutes";
 import NotFoundPage from "../pages/notFoundPage";
+import AgGridExample from "../pages/examples/AgGridExample";
 
 const AppRouter: React.FC = () => {
   return (
@@ -21,6 +22,10 @@ const AppRouter: React.FC = () => {
             element={<EditProfile />}
           />
           <Route path={systemRoutes.DASHBOARD} element={<Dashboard />} />
+          <Route
+            path={systemRoutes.EXAMPLES_AG_GRID}
+            element={<AgGridExample />}
+          />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

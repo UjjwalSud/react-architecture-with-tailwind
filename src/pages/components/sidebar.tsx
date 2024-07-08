@@ -211,45 +211,44 @@ const Sidebar: React.FC = () => {
                 onClick={() => toggleDropdown("ecom")}
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="w-6 h-6"
                 >
-                  <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                  <line x1="12" y1="8" x2="12" y2="16" />
                 </svg>
+
                 <span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
-                  Parent With Childs
+                  Examples
                 </span>
                 {renderArrow(openSubMenus["ecom"])}
               </button>
               {openSubMenus.ecom && (
                 <ul className="py-2 space-y-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                  <Link
+                    to={systemRoutes.EXAMPLES_AG_GRID}
+                    className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                  >
+                    <svg
+                      className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      Child 1
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    >
-                      Child 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    >
-                      Child 3
-                    </a>
-                  </li>
+                      <circle cx="12" cy="12" r="10" />
+                      <rect x="8" y="8" width="8" height="8" />
+                    </svg>
+
+                    <span className="ms-3">AG Grid</span>
+                  </Link>
                 </ul>
               )}
             </li>

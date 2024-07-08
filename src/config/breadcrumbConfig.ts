@@ -23,4 +23,12 @@ export const breadcrumbConfig: { [key: string]: BreadcrumbData } = {
     items: [{ label: "Dashboard", href: "" }],
     heading: "Dashboard",
   },
+  [systemRoutes.EXAMPLES_AG_GRID]: {
+    items: [
+      { label: "Dashboard", href: systemRoutes.DASHBOARD },
+      { label: "Examples", href: "" },
+      { label: "AG Grid", href: "" },
+    ],
+    heading: "Example: AG Grid",
+  },
 };
