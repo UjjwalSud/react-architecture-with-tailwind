@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import authService from "../../services/auth/authService";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = (location.state as any)?.from?.pathname || "/";
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    authService.login({ username, password });
+    const loginSuccess = await authService.login({ username, password });
+    if (loginSuccess) {
+      navigate(from); // Redirect to the `from` location or default to '/'
+    }
   };
   useDocumentTitle("Login");
   return (
@@ -18,7 +26,7 @@ const Login: React.FC = () => {
           <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
             <div className="max-w-md mx-auto">
               <div>
-                <h1 className="text-2xl font-semibold">Login</h1>
+                <h1 className="text-2xl font-semibold">Login </h1>
               </div>
               <div className="divide-y divide-gray-200">
                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
