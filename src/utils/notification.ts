@@ -1,4 +1,3 @@
-// src/utils/notificationHelper.ts
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

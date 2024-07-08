@@ -1,4 +1,3 @@
-// src/index.tsx
 import { StrictMode } from "react";
 import "./styles/index.css";
 
