@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { WEBSITE_NAME } from "../../config/appConfig";
-import { ACCOUNT_EDIT_PROFILE, DASHBOARD } from "../../constants/routes";
+import { appConfig } from "../../config/appConfig";
+import { systemRoutes } from "../../constants/systemRoutes";
 import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
@@ -99,7 +99,7 @@ const Sidebar: React.FC = () => {
                   alt="FlowBite Logo"
                 />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  {WEBSITE_NAME}
+                  {appConfig.WEBSITE_NAME}
                 </span>
               </a>
             </div>
@@ -142,7 +142,7 @@ const Sidebar: React.FC = () => {
                       <ul className="py-1" role="none">
                         <li>
                           <Link
-                            to={ACCOUNT_EDIT_PROFILE}
+                            to={systemRoutes.ACCOUNT_EDIT_PROFILE}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           >
                             My Account
@@ -186,7 +186,7 @@ const Sidebar: React.FC = () => {
           <ul className="space-y-2 font-medium">
             <li>
               <Link
-                to={DASHBOARD}
+                to={systemRoutes.DASHBOARD}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg

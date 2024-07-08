@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { LocalStorageKeys } from "../constants/localStorageKeys";
+import { localStorageKeys } from "../constants/localStorageKeys";
 import { localStorageHelper } from "./localStorage";
+import { systemRoutes } from "../constants/systemRoutes";
 
 interface PostConfig extends AxiosRequestConfig {
   baseUrl: string;
@@ -21,7 +22,7 @@ export const postAPI = async (
   onError: (error: any, status: number) => void
 ): Promise<void> => {
   try {
-    const token = localStorageHelper.getItem(LocalStorageKeys.JwtToken);
+    const token = localStorageHelper.getItem(localStorageKeys.JWT_TOKEN);
     const headers = {
       ...postConfig.headers,
       Authorization: token ? `Bearer ${token}` : undefined,
@@ -38,6 +39,10 @@ export const postAPI = async (
     onSuccess(response.data, response.status);
   } catch (error: any) {
     if (error.response) {
+      const status = error.response ? error.response.status : 500;
+      if (status === 401 || status === 403) {
+        window.location.href = systemRoutes.LOGIN;
+      }
       onError(error.response.data, error.response.status);
     } else {
       onError(error.message + " " + error.code, 500);

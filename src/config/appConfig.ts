@@ -1,2 +1,4 @@
-export const WEBSITE_NAME = "My Awesome Website";
-export const DEFAULT_LANGUAGE = "en";
+export enum appConfig {
+  WEBSITE_NAME = "My Awesome Website",
+  DEFAULT_LANGUAGE = "en",
+}

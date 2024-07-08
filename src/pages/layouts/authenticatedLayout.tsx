@@ -5,8 +5,9 @@ import Sidebar from "../components/sidebar";
 import { breadcrumbConfig } from "../../config/breadcrumbConfig";
 import Breadcrumb from "../components/breadCrumb";
 import { ToastContainer } from "react-toastify";
-
+import useAuth from "../../hooks/useAuth"; // Import the custom hook
 const AuthenticatedLayout: React.FC = () => {
+  useAuth(); // Call the hook to check authentication
   const location = useLocation();
   const currentPath = location.pathname;
   const breadcrumbData = breadcrumbConfig[currentPath] || {

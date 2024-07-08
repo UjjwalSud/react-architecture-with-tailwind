@@ -6,7 +6,7 @@ import EditProfile from "../pages/my-account/editProfile";
 import AnonymousLayout from "../pages/layouts/anonymousLayout";
 import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
 import Dashboard from "../pages/dashboard/dashboard";
-import { ACCOUNT_EDIT_PROFILE, DASHBOARD, LOGIN } from "../constants/routes";
+import { systemRoutes } from "../constants/systemRoutes";
 import NotFoundPage from "../pages/notFoundPage";
 
 const AppRouter: React.FC = () => {
@@ -14,11 +14,14 @@ const AppRouter: React.FC = () => {
     <Router>
       <Routes>
         <Route element={<AnonymousLayout />}>
-          <Route path={LOGIN} element={<Login />} />
+          <Route path={systemRoutes.LOGIN} element={<Login />} />
         </Route>
         <Route element={<AuthenticatedLayout />}>
-          <Route path={ACCOUNT_EDIT_PROFILE} element={<EditProfile />} />
-          <Route path={DASHBOARD} element={<Dashboard />} />
+          <Route
+            path={systemRoutes.ACCOUNT_EDIT_PROFILE}
+            element={<EditProfile />}
+          />
+          <Route path={systemRoutes.DASHBOARD} element={<Dashboard />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

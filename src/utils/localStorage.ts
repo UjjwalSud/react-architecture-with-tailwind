@@ -1,18 +1,18 @@
 // src/utils/localStorageHelper.ts
-import { LocalStorageKeys } from "../constants/localStorageKeys";
+import { localStorageKeys } from "../constants/localStorageKeys";
 
 //how to use : localStorageHelper.setItem(LocalStorageKeys.JwtToken, token);
 export const localStorageHelper = {
-  setItem: <T>(key: LocalStorageKeys, value: T): void => {
+  setItem: <T>(key: localStorageKeys, value: T): void => {
     localStorage.setItem(key, JSON.stringify(value));
   },
   //how to use : localStorageHelper.getItem<string>(LocalStorageKeys.JwtToken);
-  getItem: <T>(key: LocalStorageKeys): T | null => {
+  getItem: <T>(key: localStorageKeys): T | null => {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
   },
 
-  removeItem: (key: LocalStorageKeys): void => {
+  removeItem: (key: localStorageKeys): void => {
     localStorage.removeItem(key);
   },
 

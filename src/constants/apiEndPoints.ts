@@ -1,1 +1,3 @@
-export const AUTH_LOGIN = "auth/login";
+export enum apiEndpoints {
+  AUTH_LOGIN = "auth/login",
+}

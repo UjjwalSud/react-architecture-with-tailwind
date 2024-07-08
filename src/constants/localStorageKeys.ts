@@ -1,5 +1,4 @@
-// src/constants/localStorageKeys.ts
-export enum LocalStorageKeys {
-  JwtToken = "jwtToken",
+export enum localStorageKeys {
+  JWT_TOKEN = "token",
   // Add other keys as needed
 }

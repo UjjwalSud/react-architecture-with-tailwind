@@ -14,5 +14,4 @@ export const showErrorMessage = (message: string) => {
   toast.error(message);
 };
 
-// You can export ToastContainer to use in your main app component
 export { ToastContainer };
