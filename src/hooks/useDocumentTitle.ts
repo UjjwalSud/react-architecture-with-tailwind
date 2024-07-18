@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { appConfig } from "../config/appConfig";
+import { AppConfig } from "../config/AppConfig";
 
 const useDocumentTitle = (title: string) => {
   useEffect(() => {
-    document.title = appConfig.WEBSITE_NAME + " : " + title;
+    document.title = AppConfig.WEBSITE_NAME + " : " + title;
   }, [title]);
 };
 

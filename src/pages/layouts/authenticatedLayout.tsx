@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Sidebar from "../components/sidebar";
-import { breadcrumbConfig } from "../../config/breadcrumbConfig";
-import Breadcrumb from "../components/breadCrumb";
+import Sidebar from "../../components/Sidebar";
+import { breadcrumbConfig } from "../../config/BreadcrumbConfig";
+import Breadcrumb from "../../components/BreadCrumb";
 import { ToastContainer } from "react-toastify";
 import useAuth from "../../hooks/useAuth"; // Import the custom hook
 

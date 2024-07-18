@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { localStorageKeys } from "../constants/localStorageKeys";
+import { LocalStorageKeys } from "../constants/localStorageKeys";
 import { localStorageHelper } from "./localStorage";
 import { systemRoutes } from "../constants/systemRoutes";
 
@@ -22,7 +22,7 @@ export const postAPI = async (
   onError: (error: any, status: number) => void
 ): Promise<void> => {
   try {
-    const token = localStorageHelper.getItem(localStorageKeys.JWT_TOKEN);
+    const token = localStorageHelper.getItem(LocalStorageKeys.JWT_TOKEN);
     const headers = {
       ...postConfig.headers,
       Authorization: token ? `Bearer ${token}` : undefined,

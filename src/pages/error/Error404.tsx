@@ -1,8 +1,8 @@
 import React from "react";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 import { Link } from "react-router-dom";
 
-const NotFoundPage: React.FC = () => {
+const Error404: React.FC = () => {
   useDocumentTitle("Error - 404");
   return (
     <div className="bg-gray-100 h-screen justify-center">
@@ -121,4 +121,4 @@ const NotFoundPage: React.FC = () => {
   );
 };
 
-export default NotFoundPage;
+export default Error404;

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "../pages/auth/login";
-import EditProfile from "../pages/my-account/editProfile";
-import AnonymousLayout from "../pages/layouts/anonymousLayout";
-import AuthenticatedLayout from "../pages/layouts/authenticatedLayout";
-import Dashboard from "../pages/dashboard/dashboard";
+import Login from "../pages/auth/Login";
+import EditProfile from "../pages/my-account/EditProfile";
+import AnonymousLayout from "../pages/layouts/AnonymousLayout";
+import AuthenticatedLayout from "../pages/layouts/AuthenticatedLayout";
+import Dashboard from "../pages/dashboard/Dashboard";
 import { systemRoutes } from "../constants/systemRoutes";
-import NotFoundPage from "../pages/notFoundPage";
+import Error404 from "../pages/error/Error404";
 import AgGridExample from "../pages/examples/AgGridExample";
 
 const AppRouter: React.FC = () => {
@@ -27,7 +27,7 @@ const AppRouter: React.FC = () => {
             element={<AgGridExample />}
           />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </Router>
   );

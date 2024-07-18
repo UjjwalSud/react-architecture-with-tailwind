@@ -1,4 +1,4 @@
-export interface authRequest {
+export interface AuthRequest {
   username: string;
   password: string;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
-import authService from "../../services/auth/authService";
+import AuthService from "../../services/auth/AuthService";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const loginSuccess = await authService.login({ username, password });
+    const loginSuccess = await AuthService.login({ username, password });
     if (loginSuccess) {
       navigate(from); // Redirect to the `from` location or default to '/'
     }

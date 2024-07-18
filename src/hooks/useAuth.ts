@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { localStorageHelper } from "../utils/localStorage"; // Import your local storage helper
-import { localStorageKeys } from "../constants/localStorageKeys";
+import { localStorageHelper } from "../helpers/localStorage"; // Import your local storage helper
+import { LocalStorageKeys } from "../constants/localStorageKeys";
 import { systemRoutes } from "../constants/systemRoutes";
 
 const useAuth = () => {
@@ -10,7 +10,7 @@ const useAuth = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const token = localStorageHelper.getItem(localStorageKeys.JWT_TOKEN);
+    const token = localStorageHelper.getItem(LocalStorageKeys.JWT_TOKEN);
     if (!token) {
       navigate(systemRoutes.LOGIN, { state: { from: location } });
     } else {

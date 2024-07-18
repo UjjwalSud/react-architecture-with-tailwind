@@ -1,20 +1,20 @@
-import { apiEndpoints } from "../../constants/apiEndPoints";
-import { postAPI } from "../../utils/httpRequest";
-import { authRequest } from "../../interfaces/requests/auth/authrequest";
-import { authResponse } from "../../interfaces/responses/auth/authResponse";
-import { localStorageHelper } from "../../utils/localStorage";
-import { localStorageKeys } from "../../constants/localStorageKeys";
-import { showErrorMessage } from "../../utils/notification";
+import { ApiEndPoints } from "../../constants/apiEndPoints";
+import { postAPI } from "../../helpers/httpRequest";
+import { AuthRequest } from "../../interfaces/requests/auth/AuthRequest";
+import { AuthResponse } from "../../interfaces/responses/auth/AuthResponse";
+import { localStorageHelper } from "../../helpers/localStorage";
+import { LocalStorageKeys } from "../../constants/localStorageKeys";
+import { showErrorMessage } from "../../helpers/notification";
 
-const authService = {
-  login: (data: authRequest): Promise<boolean> => {
+const AuthService = {
+  login: (data: AuthRequest): Promise<boolean> => {
     return new Promise((resolve) => {
       postAPI(
-        apiEndpoints.AUTH_LOGIN,
+        ApiEndPoints.AUTH_LOGIN,
         data,
-        (responseData: authResponse, status) => {
+        (responseData: AuthResponse, status) => {
           localStorageHelper.setItem(
-            localStorageKeys.JWT_TOKEN,
+            LocalStorageKeys.JWT_TOKEN,
             responseData.jwtToken
           );
           resolve(true);
@@ -27,4 +27,4 @@ const authService = {
     });
   },
 };
-export default authService;
+export default AuthService;

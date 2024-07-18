@@ -1,3 +1,3 @@
-export enum apiEndpoints {
+export enum ApiEndPoints {
   AUTH_LOGIN = "auth/login",
 }
