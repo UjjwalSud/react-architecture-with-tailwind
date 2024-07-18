@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Sidebar from "../../components/Sidebar";
-import { breadcrumbConfig } from "../../config/BreadcrumbConfig";
-import Breadcrumb from "../../components/BreadCrumb";
+import Sidebar from "../components/Sidebar";
+import { breadcrumbConfig } from "../config/BreadcrumbConfig";
+import Breadcrumb from "../components/BreadCrumb";
 import { ToastContainer } from "react-toastify";
-import useAuth from "../../hooks/useAuth"; // Import the custom hook
+import useAuth from "../hooks/useAuth"; // Import the custom hook
 
 const AuthenticatedLayout: React.FC = () => {
   const { loading } = useAuth(); // Call the hook to check authentication
