@@ -13,6 +13,7 @@
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
@@ -21,11 +22,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:qa": "env-cmd -f .env.qa npm run-script build",
-    "build:staging": "env-cmd -f .env.staging npm run-script build",
-    "build:production": "env-cmd -f .env.production npm run-script build",
+    "start": "node init && react-scripts start",
+    "build": "node init && react-scripts build",
+    "build:qa": "node init && env-cmd -f .env.qa npm run-script build",
+    "build:staging": "node init && env-cmd -f .env.staging npm run-script build",
+    "build:production": "node init && env-cmd -f .env.production npm run-script build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
