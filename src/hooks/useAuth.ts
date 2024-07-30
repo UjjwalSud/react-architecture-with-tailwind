@@ -12,7 +12,8 @@ const useAuth = () => {
   useEffect(() => {
     const token = localStorageHelper.getItem(LocalStorageKeys.JWT_TOKEN);
     if (!token) {
-      navigate(systemRoutes.LOGIN, { state: { from: location } });
+      //navigate(systemRoutes.LOGIN, { state: { from: location } });
+      setLoading(false);
     } else {
       setLoading(false);
     }

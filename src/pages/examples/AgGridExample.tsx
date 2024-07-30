@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
-import useDocumentTitle from "../../hooks/useDocumentTitle";
-
-import axios from "axios";
+import AuthenticatedLayout from "../../layouts/AuthenticatedLayout";
 
 const AgGridExample: React.FC = () => {
-  useDocumentTitle("Example: AG - Grid");
-
-  return <>hello world</>;
+  return (
+    <>
+      <AuthenticatedLayout
+        pageTitle="Example: AG - Grid"
+        pageHeading="Example: AG - Grid"
+      >
+        Coming Soon
+      </AuthenticatedLayout>
+    </>
+  );
 };
 export default AgGridExample;

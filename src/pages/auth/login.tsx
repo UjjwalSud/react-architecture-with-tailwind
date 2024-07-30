@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useDocumentTitle from "../../hooks/useDocumentTitle";
 import AuthService from "../../services/auth/AuthService";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthLayout from "../../layouts/AuthLayout";

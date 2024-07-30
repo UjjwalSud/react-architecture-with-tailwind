@@ -1,23 +1,27 @@
-import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import { breadcrumbConfig } from "../config/BreadcrumbConfig";
-import Breadcrumb from "../components/BreadCrumb";
 import { ToastContainer } from "react-toastify";
-import useAuth from "../hooks/useAuth"; // Import the custom hook
+import Sidebar from "../components/Sidebar";
+import Breadcrumb from "../components/BreadCrumb";
+import { breadcrumbConfig } from "../config/BreadcrumbConfig";
+import { useLocation } from "react-router-dom";
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import { ReactNode } from "react";
 
-const AuthenticatedLayout: React.FC = () => {
-  const { loading } = useAuth(); // Call the hook to check authentication
+interface AuthenticatedLayoutProps {
+  pageTitle: string;
+  pageHeading: string;
+  children: ReactNode;
+}
 
+const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = (props) => {
   const location = useLocation();
   const currentPath = location.pathname;
+
   const breadcrumbData = breadcrumbConfig[currentPath] || {
     items: [],
-    heading: "",
+    heading: props.pageHeading,
   };
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+
+  useDocumentTitle(props.pageTitle);
 
   return (
     <div className="flex">
@@ -37,9 +41,7 @@ const AuthenticatedLayout: React.FC = () => {
           heading={breadcrumbData.heading}
         />
 
-        <div className="p-4">
-          <Outlet />
-        </div>
+        <div className="p-4">{props.children}</div>
       </div>
     </div>
   );

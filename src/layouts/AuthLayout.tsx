@@ -1,6 +1,7 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
-import { AppConfig } from "../config/AppConfig";
+
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 interface AuthLayoutProps {
   pageTitle: string;
@@ -8,10 +9,8 @@ interface AuthLayoutProps {
   children: ReactNode;
 }
 
-const AuthLayout = ({ pageTitle, children, pageHeading }: AuthLayoutProps) => {
-  useEffect(() => {
-    document.title = AppConfig.WEBSITE_NAME + " : " + pageTitle;
-  }, [pageTitle]);
+const AuthLayout: React.FC<AuthLayoutProps> = (props) => {
+  useDocumentTitle(props.pageTitle);
   return (
     <>
       <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
@@ -20,9 +19,9 @@ const AuthLayout = ({ pageTitle, children, pageHeading }: AuthLayoutProps) => {
           <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
             <ToastContainer />
             <div>
-              <h1 className="text-2xl font-semibold">{pageHeading} </h1>
+              <h1 className="text-2xl font-semibold">{props.pageHeading} </h1>
             </div>
-            <div className="max-w-md mx-auto">{children}</div>
+            <div className="max-w-md mx-auto">{props.children}</div>
           </div>
         </div>
       </div>
