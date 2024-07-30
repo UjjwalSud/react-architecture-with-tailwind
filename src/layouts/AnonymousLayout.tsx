@@ -9,12 +9,6 @@ interface AnonymousLayoutProps {
   children: ReactNode;
 }
 
-/*
-const AuthLayout: React.FC<AuthLayoutProps> = (props) => {
-  useEffect(() => {
-    document.title = AppConfig.WEBSITE_NAME + " : " + props.pageTitle;
-  }, [props.pageTitle]);
-*/
 const AnonymousLayout: React.FC<AnonymousLayoutProps> = (props) => {
   useDocumentTitle(props.pageTitle);
   return (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthService from "../../services/auth/AuthService";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthLayout from "../../layouts/AuthLayout";
+import FormInput from "../../components/FormInput";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -23,6 +24,16 @@ const Login: React.FC = () => {
       <AuthLayout pageTitle="Login" pageHeading="Login">
         <div className="divide-y divide-gray-200">
           <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+            {/* <FormInput
+              label="Email Address"
+              type="email"
+              name="username"
+              className="form-input"
+              placeholder="Enter your email"
+              containerClass="mb-6 space-y-2"
+              labelClassName="font-semibold text-gray-500"
+              required
+            /> */}
             <div className="relative">
               <input
                 id="email"
