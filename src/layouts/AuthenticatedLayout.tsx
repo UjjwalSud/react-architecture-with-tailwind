@@ -4,8 +4,8 @@ import Breadcrumb from "../components/BreadCrumb";
 import { breadcrumbConfig } from "../config/BreadcrumbConfig";
 import { useLocation } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
-import { ReactNode } from "react";
-
+import { ReactNode, Suspense } from "react";
+const loading = () => <div />
 interface AuthenticatedLayoutProps {
   pageTitle: string;
   pageHeading: string;
@@ -24,6 +24,7 @@ const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = (props) => {
   useDocumentTitle(props.pageTitle);
 
   return (
+     <Suspense fallback={loading()}>
     <div className="flex">
       <ToastContainer />
       <Sidebar />
@@ -35,15 +36,14 @@ const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = (props) => {
             <span className="ml-4">Contact</span>
           </div>
         </div>
-
         <Breadcrumb
           items={breadcrumbData.items}
           heading={breadcrumbData.heading}
         />
-
         <div className="p-4">{props.children}</div>
       </div>
     </div>
+    </Suspense>
   );
 };
 

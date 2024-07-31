@@ -1,8 +1,15 @@
 import React from "react";
-import AppRouter from "./routes/AppRouter";
+import AllRoutes from "./routes/Routes";
+import { ToastContainer } from "react-toastify";
 
-const App: React.FC = () => {
-  return <AppRouter />;
-};
+const App = () => {
+	return (
+		<React.Fragment>
+			<ToastContainer />
+			<AllRoutes />
+		</React.Fragment>
+	)
+}
+
 
 export default App;

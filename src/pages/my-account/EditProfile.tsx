@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-import AuthenticatedLayout from "../../layouts/AuthenticatedLayout";
 const EditProfile: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Profile");
 
@@ -10,7 +8,7 @@ const EditProfile: React.FC = () => {
 
   return (
     <>
-      <AuthenticatedLayout pageTitle="Edit Profile" pageHeading="Edit Profile">
+
         <div className="sm:hidden">
           <label htmlFor="tabs" className="sr-only">
             Select your country
@@ -268,7 +266,6 @@ const EditProfile: React.FC = () => {
             </>
           )}
         </div>
-      </AuthenticatedLayout>
     </>
   );
 };

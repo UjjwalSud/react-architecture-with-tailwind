@@ -3,7 +3,6 @@ import AuthenticatedLayout from "../../layouts/AuthenticatedLayout";
 const Dashboard: React.FC = () => {
   return (
     <>
-      <AuthenticatedLayout pageTitle="Dashboard" pageHeading="Dashboard">
         <div className="mt-5">
           <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
             <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
@@ -354,7 +353,6 @@ const Dashboard: React.FC = () => {
             <div className="h-24 col-span-3 bg-white border border-gray-300"></div>
           </div>
         </div>
-      </AuthenticatedLayout>
     </>
   );
 };

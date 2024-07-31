@@ -3,21 +3,29 @@ import AuthService from "../../services/auth/AuthService";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthLayout from "../../layouts/AuthLayout";
 import FormInput from "../../components/FormInput";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/Store';
+import { login, logout } from '../../redux/AuthSlice';
 const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("user");
+  const [password, setPassword] = useState<string>("password");
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const from = (location.state as any)?.from?.pathname || "/";
 
-  const handleLogin = async (e: React.FormEvent) => {
+ const handleLogin = (e: React.FormEvent) => {
+  debugger
     e.preventDefault();
-    const loginSuccess = await AuthService.login({ username, password });
-    if (loginSuccess) {
-      navigate(from); // Redirect to the `from` location or default to '/'
+    // Perform authentication here. This is just a simulation.
+    if (username === 'user' && password === 'password') {
+      dispatch(login());
+      navigate('/dashboard');
+    } else {
+      alert('Invalid credentials');
     }
   };
+
 
   return (
     <>
@@ -40,6 +48,7 @@ const Login: React.FC = () => {
                 name="email"
                 type="text"
                 autoComplete="off"
+                value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                 placeholder="Email address"
@@ -56,6 +65,7 @@ const Login: React.FC = () => {
                 id="password"
                 name="password"
                 type="password"
+                 value={password}
                 className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -69,7 +79,7 @@ const Login: React.FC = () => {
             </div>
             <div className="relative">
               <button
-                onClick={handleLogin}
+                 onClick={handleLogin}
                 className="bg-cyan-500 text-white rounded-md px-2 py-1"
               >
                 Submit
@@ -93,9 +103,9 @@ const Login: React.FC = () => {
               <g
                 id="Icons"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               >
                 {" "}
                 <g id="Color-" transform="translate(-401.000000, -860.000000)">
