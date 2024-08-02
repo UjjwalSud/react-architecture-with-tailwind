@@ -1,23 +1,21 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { localStorageHelper } from "../helpers/localStorage"; // Import your local storage helper
-import { LocalStorageKeys } from "../constants/localStorageKeys";
-import { systemRoutes } from "../constants/systemRoutes";
+// src/hooks/useAuth.ts
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/Store';
 
 const useAuth = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
+  const token = useSelector((state: RootState) => state.auth.token);
 
   useEffect(() => {
-    const token = localStorageHelper.getItem(LocalStorageKeys.JWT_TOKEN);
     if (!token) {
-      //navigate(systemRoutes.LOGIN, { state: { from: location } });
-      setLoading(false);
-    } else {
-      setLoading(false);
+      navigate('/login', { state: { from: location } });
     }
-  }, [navigate]);
+    setLoading(false);
+  }, [token, navigate, location]);
 
   return { loading };
 };

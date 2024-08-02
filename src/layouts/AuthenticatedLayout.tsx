@@ -5,6 +5,8 @@ import { breadcrumbConfig } from "../config/BreadcrumbConfig";
 import { useLocation } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import { ReactNode, Suspense } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/rootReducer";
 const loading = () => <div />
 interface AuthenticatedLayoutProps {
   pageTitle: string;
@@ -13,6 +15,8 @@ interface AuthenticatedLayoutProps {
 }
 
 const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = (props) => {
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+  const token = useSelector((state: RootState) => state.auth.token);
   const location = useLocation();
   const currentPath = location.pathname;
 

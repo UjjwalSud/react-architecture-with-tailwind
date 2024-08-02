@@ -9,7 +9,7 @@ import AnonymousLayout from '../layouts/AnonymousLayout';
 
 const AllRoutes = () => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-
+  const token = useSelector((state: RootState) => state.auth.token);
   return (
     <Routes>
       {/* Public Routes */}
@@ -32,7 +32,9 @@ const AllRoutes = () => {
           path={route.path}
           element={
             isAuthenticated ? (
+              
               <AuthenticatedLayout pageTitle={route.name!} pageHeading={route.name!}>
+                
                 {route.element}
               </AuthenticatedLayout>
             ) : (

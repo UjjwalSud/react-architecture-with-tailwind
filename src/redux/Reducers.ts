@@ -5,7 +5,6 @@ const initialState: AppState = {
 };
 
 export const authReducer = (state = initialState, action: AppActionTypes): AppState => {
-    debugger
   switch (action.type) {
     case LOGIN:
       return { ...state, isAuthenticated: true };

@@ -1,31 +1,31 @@
 import React, { useState } from "react";
-import AuthService from "../../services/auth/AuthService";
-import { useLocation, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import AuthLayout from "../../layouts/AuthLayout";
-import FormInput from "../../components/FormInput";
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/Store';
-import { login, logout } from '../../redux/AuthSlice';
+import {useDispatch } from 'react-redux';
+import {AppDispatch } from '../../redux/Store';
+import { login} from '../../redux/AuthSlice';
+import axios from "axios";
+import { LocalStorageKeys } from "../../constants/localStorageKeys";
+
+import { localStorageHelper } from "../../helpers/localStorage";
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("user");
   const [password, setPassword] = useState<string>("password");
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const from = (location.state as any)?.from?.pathname || "/";
 
- const handleLogin = (e: React.FormEvent) => {
-  debugger
+const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Perform authentication here. This is just a simulation.
-    if (username === 'user' && password === 'password') {
-      dispatch(login());
+    try {
+      const response = await axios.post('/login/', { username, password });
+      const { token } = response.data;      
+      // Dispatch login action with token
+      dispatch(login(token));
       navigate('/dashboard');
-    } else {
+    } catch (error) {
       alert('Invalid credentials');
     }
   };
-
 
   return (
     <>

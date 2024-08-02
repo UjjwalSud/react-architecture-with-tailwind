@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { useSelector } from 'react-redux';
 import { Route, Navigate, RouteProps } from 'react-router-dom'
 import { RootState } from '../redux/Store';
@@ -12,7 +11,6 @@ import { RootState } from '../redux/Store';
 
 const PrivateRoute = ({ component: Component, roles, ...rest }: any) => {
 const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-
 	return (
 		<Route
 			{...rest}
