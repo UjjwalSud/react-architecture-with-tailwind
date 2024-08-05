@@ -22,7 +22,7 @@ const authSlice = createSlice({
     logout: (state) => {
       state.isAuthenticated = false;
       state.token = null;
-    },
+      },
     setTokenFromLocalStorage: (state, action: PayloadAction<string>) => {
       state.isAuthenticated = true;
       state.token = action.payload;
