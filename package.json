@@ -31,11 +31,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:qa": "env-cmd -f .env.qa npm run-script build",
-    "build:staging": "env-cmd -f .env.staging npm run-script build",
-    "build:production": "env-cmd -f .env.production npm run-script build",
+    "start": "node init && react-scripts start",
+    "build": "node init && react-scripts build",
+    "build:qa": "node init && env-cmd -f .env.qa npm run-script build",
+    "build:staging": "node init && env-cmd -f .env.staging npm run-script build",
+    "build:production": "node init && env-cmd -f .env.production npm run-script build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

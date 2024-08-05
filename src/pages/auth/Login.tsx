@@ -5,9 +5,7 @@ import {useDispatch } from 'react-redux';
 import {AppDispatch } from '../../redux/Store';
 import { login} from '../../redux/AuthSlice';
 import axios from "axios";
-import { LocalStorageKeys } from "../../constants/localStorageKeys";
 
-import { localStorageHelper } from "../../helpers/localStorage";
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("user");
   const [password, setPassword] = useState<string>("password");
